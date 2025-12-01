@@ -146,9 +146,16 @@ def make_and_load_expert_wrapper(
     index_path = os.path.join(states_dir, "model.safetensors.index.json")
     with open(index_path) as f:
         module_idx = f"model.layers.{layer_idx}.block_sparse_moe.experts.{expert_idx}"
+        ## YH edit
         state_fpath = json.load(f)["weight_map"][f"{module_idx}.w1.W_q"]
+        #state_fpath = json.load(f)["weight_map"][f"{module_idx}.w1.weight"]
 
+    print(states_dir)
+    print(state_fpath)
     state_dict = load_file(os.path.join(states_dir, state_fpath), device=str(device))
+    # test 1
+    # test 2
+    # test 3
     expert = make_empty_expert(config, quant_config)
     expert.load_state_dict(state_dict, strict=True)
 
@@ -159,7 +166,9 @@ def load_00_expert_state_dict(states_dir: str, device: torch.device):
     index_path = os.path.join(states_dir, "model.safetensors.index.json")
     with open(index_path) as f:
         module_idx = f"model.layers.0.block_sparse_moe.experts.0"
+        ## YH edit
         state_fpath = json.load(f)["weight_map"][f"{module_idx}.w1.W_q"]
+        #state_fpath = json.load(f)["weight_map"][f"{module_idx}.w1.weight"]
     return load_file(os.path.join(states_dir, state_fpath), device=str(device))
 
 
@@ -169,7 +178,10 @@ def build_model(
     offload_config: OffloadConfig,
     state_path: str,
 ):
-    model_name = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+    ## YH edit:
+    #model_name = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+    #model_name = "/ephemeral/huggingface_cache/mistralai/Mixtral-8x7B-Instruct-v0.1"
+    model_name = "/ephemeral/huggingface_cache/lavawolfiee/Mixtral-8x7B-Instruct-v0.1-offloading-demo"
 
     state_dict_00 = load_00_expert_state_dict(state_path, device)
 

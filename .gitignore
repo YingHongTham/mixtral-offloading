@@ -162,3 +162,4 @@ cython_debug/
 Mixtral-8x7B-Instruct-v0.1-offloading-demo
 local-Mixtral-8x7B-v0.1
 *.nsys-rep
+nsysreps/

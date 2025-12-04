@@ -32,4 +32,4 @@ filenames = [
 ]
 
 for filename in filenames:
-    hf_hub_download(repo_id="mistralai/Mixtral-8x7B-v0.1", filename=filename, local_dir="/ephemeral/mixtral/mistralai/Mixtral-8x7B-v0.1")
+    hf_hub_download(repo_id="mistralai/Mixtral-8x7B-v0.1", filename=filename, local_dir="/ephemeral/huggingface_cache/mistralai/Mixtral-8x7B-v0.1")

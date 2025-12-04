@@ -38,7 +38,7 @@ device = torch.device("cuda:0")
 #++# some configs for experimenting
 
 ##### Change this to 5 if you have only 12 GB of GPU VRAM #####
-offload_per_layer = 6
+offload_per_layer = 4
 # offload_per_layer = 5
 
 #max_new_tokens=512 ## slow and huge profile output...
@@ -111,6 +111,13 @@ print(f"load time: {endtime - _time}")
 
 prompts = [
     "Imagine that you are a doctor, and a patient comes with the following symptoms: fever, strong headache and fatigue",
+    "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance " + \
+    "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance " + \
+    "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance " + \
+    "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance " + \
+    "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance " + \
+    "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance " + \
+    "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance " + \
     "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance " + \
     "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance " + \
     "imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance imbalance",

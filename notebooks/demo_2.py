@@ -1,9 +1,12 @@
-#!/home/ubuntu/myenv01/bin/python
+#!/workspace/.venv/bin/python
+
+## /home/ubuntu/myenv01/bin/python
 
 import numpy
 import os, sys
 
-sys.path.append("/home/ubuntu/mixtral-offloading")
+#sys.path.append("/home/ubuntu/mixtral-offloading")
+sys.path.append("/workspace/mixtral-offloading")
 import torch
 import torch.cuda.nvtx as nvtx
 from torch.nn import functional as F
